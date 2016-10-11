@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <guiComponents>
+        <item>
+            <type>TextView</type>
+            <text>Enter a message</text>
+            <x>0</x>
+            <y>0</y>
+        </item>
+        <item>
+            <type>Button</type>
+            <text>Send</text>
+            <x>1</x>
+            <y>2</y>
+        </item>
+    </guiComponents>
