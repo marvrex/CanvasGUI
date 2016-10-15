@@ -2,19 +2,26 @@ package com.canvasgui.canvasgui;
 
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Marv on 15/10/2016.
  */
 
 public class ViewFactory {
 
-    public ViewFactory() {}
+    private Map components;
 
-    public View createView(GUIElementDescription descr) {
+    public ViewFactory() {
+        this.components = new HashMap();
+    }
 
-            //instantiate a new view object
-            View view = initViewType(descr);
-
+    private View createView(GUIElementDescription descr) {
+        //instantiate a new view object
+        View view = initViewType(descr);
 
         return view;
     }
@@ -24,7 +31,6 @@ public class ViewFactory {
             String prefix = "android.view.";
             String fqn = prefix + descr.getType();
             return (View) Class.forName(fqn).newInstance();
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -32,5 +38,10 @@ public class ViewFactory {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    public Map getComponents() {
+        return this.components;
     }
 }
