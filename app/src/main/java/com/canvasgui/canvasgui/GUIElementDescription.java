@@ -13,12 +13,14 @@ import android.os.Parcelable;
 public class GUIElementDescription implements Parcelable{
     private String type;
     private String text;
+    private float textSize;
     private int x;
     private int y;
 
-    public GUIElementDescription(String type, String text, int x, int y) {
+    public GUIElementDescription(String type, String text, float textSize, int x, int y) {
         this.type = type;
         this.text = text;
+        this.textSize = textSize;
         this.x = x;
         this.y = y;
     }
@@ -26,6 +28,7 @@ public class GUIElementDescription implements Parcelable{
     public GUIElementDescription(Parcel parcel) {
         this.type = parcel.readString();
         this.text = parcel.readString();
+        this.textSize = parcel.readFloat();
         this.x = parcel.readInt();
         this.y = parcel.readInt();
     }
@@ -46,6 +49,8 @@ public class GUIElementDescription implements Parcelable{
         return this.y;
     }
 
+    public float getTextSize() {return this.textSize; }
+
     @Override
     public int describeContents() {
         return 0;
@@ -55,6 +60,7 @@ public class GUIElementDescription implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.type);
         dest.writeString(this.text);
+        dest.writeFloat(this.textSize);
         dest.writeInt(this.x);
         dest.writeInt(this.y);
     }

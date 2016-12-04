@@ -2,14 +2,14 @@
     <guiComponents>
         <item>
             <type>TextView</type>
-            <text>Enter a message</text>
+            <text>This is the second xml file</text>
             <textSize>26</textSize>
             <x>0</x>
             <y>0</y>
         </item>
         <item>
             <type>Button</type>
-            <text>Send</text>
+            <text>Hooray!</text>
             <textSize>26</textSize>
             <x>1</x>
             <y>2</y>

@@ -65,6 +65,7 @@ public class LayoutParser {
 
         String type = null;
         String text = null;
+        float textSize = 0.0f;
         int x = -1;
         int y= -1;
 
@@ -81,11 +82,13 @@ public class LayoutParser {
                 x = Integer.parseInt(readXCoordinate(parser));
             } else if (name.equals("y")) {
                 y = Integer.parseInt(readYCoordinate(parser));
+            } else if (name.equals("textSize")) {
+                textSize = Float.parseFloat(readTextSize(parser));
             } else {
                 skip(parser);
             }
         }
-        return new GUIElementDescription(type, text, x, y);
+        return new GUIElementDescription(type, text, textSize, x, y);
     }
 
     //retrieve type tags
@@ -104,7 +107,7 @@ public class LayoutParser {
         return title;
     }
 
-    //retrieve text tags
+    //retrieve x coordinate
     private String readXCoordinate(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, "x");
         String title = readElement(parser);
@@ -112,11 +115,19 @@ public class LayoutParser {
         return title;
     }
 
-    //retrieve text tags
+    //retrieve y coordinate
     private String readYCoordinate(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, "y");
         String title = readElement(parser);
         parser.require(XmlPullParser.END_TAG, null, "y");
+        return title;
+    }
+
+    //retrieve text size
+    private String readTextSize(XmlPullParser parser) throws XmlPullParserException, IOException {
+        parser.require(XmlPullParser.START_TAG, null, "textSize");
+        String title = readElement(parser);
+        parser.require(XmlPullParser.END_TAG, null, "textSize");
         return title;
     }
 

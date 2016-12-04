@@ -15,6 +15,9 @@ import java.util.List;
 
 public class DisplayXmlActivity extends AppCompatActivity {
 
+    private final int GRIDLAYOUT_COL_COUNT = 3;
+    private final int GRIDLAYOUT_ROW_COUNT = 6;
+
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -32,8 +35,8 @@ public class DisplayXmlActivity extends AppCompatActivity {
     @NonNull
     private GridLayout initGridLayout() {
         GridLayout layout = (GridLayout) findViewById(R.id.activity_display_xml);
-        layout.setColumnCount(3);
-        layout.setRowCount(6);
+        layout.setColumnCount(GRIDLAYOUT_COL_COUNT);
+        layout.setRowCount(GRIDLAYOUT_ROW_COUNT);
         return layout;
     }
 

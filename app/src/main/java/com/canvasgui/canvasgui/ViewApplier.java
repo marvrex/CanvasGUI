@@ -15,24 +15,22 @@ import java.util.List;
 
 public class ViewApplier {
 
-    public ViewApplier() {
+    private ViewFactory viewFactory;
 
+    public ViewApplier() {
+        this.viewFactory = new ViewFactory();
     }
 
     public void applyViewsToLayout(Activity activity, GridLayout layout, List<GUIElementDescription> components) {
-        TextView tempView;
+        //set context for all following views
+        viewFactory.setContext(activity);
 
-        for (GUIElementDescription element : components) {
+        for (GUIElementDescription component : components) {
             //gridlayout params
-            GridLayout.Spec rowSpec = GridLayout.spec(element.getX());
-            GridLayout.Spec columnSpec = GridLayout.spec(element.getY());
+            GridLayout.Spec rowSpec = GridLayout.spec(component.getX());
+            GridLayout.Spec columnSpec = GridLayout.spec(component.getY());
 
-            //TODO remove debug code
-            tempView = new TextView(activity);
-            tempView.setTextSize(36);
-            tempView.setText(element.getType());
-
-            layout.addView(tempView, new GridLayout.LayoutParams(rowSpec, columnSpec));
+            layout.addView(viewFactory.build(component), new GridLayout.LayoutParams(rowSpec, columnSpec));
         }
     }
 }
