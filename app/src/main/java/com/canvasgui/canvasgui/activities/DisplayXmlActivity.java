@@ -16,7 +16,7 @@ import java.util.List;
 public class DisplayXmlActivity extends AppCompatActivity {
 
     private final int GRIDLAYOUT_COL_COUNT = 3;
-    private final int GRIDLAYOUT_ROW_COUNT = 6;
+    private final int GRIDLAYOUT_ROW_COUNT = 8;
 
     @Override
     protected void onCreate(Bundle savedInstance) {

@@ -2,16 +2,79 @@
     <guiComponents>
         <item>
             <type>TextView</type>
-            <text>Enter a message</text>
+            <text>Product One</text>
             <textSize>26</textSize>
             <x>0</x>
             <y>0</y>
         </item>
         <item>
             <type>Button</type>
-            <text>Send</text>
+            <text>Add</text>
+            <textSize>18</textSize>
+            <x>0</x>
+            <y>2</y>
+        </item>
+        <item>
+            <type>TextView</type>
+            <text>Product Two</text>
             <textSize>26</textSize>
+            <x>1</x>
+            <y>0</y>
+        </item>
+        <item>
+            <type>Button</type>
+            <text>Add</text>
+            <textSize>18</textSize>
             <x>1</x>
             <y>2</y>
         </item>
+        <item>
+            <type>TextView</type>
+            <text>Product Three</text>
+            <textSize>26</textSize>
+            <x>2</x>
+            <y>0</y>
+            </item>
+        <item>
+            <type>Button</type>
+            <text>Add</text>
+            <textSize>18</textSize>
+            <x>2</x>
+            <y>2</y>
+        </item>
+    <item>
+        <type>TextView</type>
+        <text>Product Four</text>
+        <textSize>26</textSize>
+        <x>3</x>
+        <y>0</y>
+    </item>
+    <item>
+        <type>Button</type>
+        <text>Add</text>
+        <textSize>18</textSize>
+        <x>3</x>
+        <y>2</y>
+    </item>
+    <item>
+        <type>TextView</type>
+        <text>Product Five</text>
+        <textSize>26</textSize>
+        <x>4</x>
+        <y>0</y>
+    </item>
+    <item>
+        <type>Button</type>
+        <text>Add</text>
+        <textSize>18</textSize>
+        <x>4</x>
+        <y>2</y>
+    </item>
+    <item>
+        <type>Button</type>
+        <text>Checkout</text>
+        <textSize>18</textSize>
+        <x>7</x>
+        <y>2</y>
+    </item>
     </guiComponents>

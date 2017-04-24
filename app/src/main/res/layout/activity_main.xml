@@ -3,11 +3,23 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <ListView
+        android:id="@+id/devicesList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:hint="Get XML"
-        android:onClick="retrieveLayout" />
+        android:background="@drawable/layout_button_style"
+        android:onClick="retrieveLayout"
+        android:id="@+id/buttonOne"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>
