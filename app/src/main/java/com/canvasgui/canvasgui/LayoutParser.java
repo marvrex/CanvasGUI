@@ -16,17 +16,18 @@ import java.util.List;
 public class LayoutParser {
 
     private Context context;
+    private XmlPullParser xmlParser;
 
-    public LayoutParser(Context currentContext) {
+    public LayoutParser(Context currentContext, XmlPullParser xmlParser) {
         this.context = currentContext;
+        this.xmlParser = xmlParser;
     }
 
     /*
      *TODO: Implement functionality to retrieve XML via a beacon
      */
     public List<GUIElementDescription> retrieveLayout() throws XmlPullParserException, IOException {
-        XmlPullParser parser = findXmlResource();
-        return parseXML(parser);
+        return parseXML(xmlParser);
     }
 
     private XmlPullParser findXmlResource() {
@@ -35,7 +36,6 @@ public class LayoutParser {
     }
 
     private List parseXML(XmlPullParser xmlParser) throws XmlPullParserException, IOException {
-        xmlParser.next();
         xmlParser.next();
         return readInput(xmlParser);
     }
