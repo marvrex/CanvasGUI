@@ -23,16 +23,8 @@ public class LayoutParser {
         this.xmlParser = xmlParser;
     }
 
-    /*
-     *TODO: Implement functionality to retrieve XML via a beacon
-     */
     public List<GUIElementDescription> retrieveLayout() throws XmlPullParserException, IOException {
         return parseXML(xmlParser);
-    }
-
-    private XmlPullParser findXmlResource() {
-        //TODO: now file is read locally, is to be retrieved from a server eventually
-        return context.getResources().getXml(R.xml.input);
     }
 
     private List parseXML(XmlPullParser xmlParser) throws XmlPullParserException, IOException {

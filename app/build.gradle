@@ -34,4 +34,6 @@ dependencies {
     compile 'org.altbeacon:android-beacon-library:2+'
     testCompile 'junit:junit:4.12'
     compile files('libs/jdom-2.0.6.jar')
+    compile files('libs/commons-io-2.5.jar')
+    compile files('libs/commons-io-2.5-javadoc.jar')
 }

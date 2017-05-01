@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main_wrapper"
+
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
+    android:layout_width="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingRight="20dp"
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:hint="Get XML"
-        android:background="@drawable/layout_button_style"
-        android:onClick="openExampleLayout"
-        android:id="@+id/buttonOne"
-        android:layout_marginBottom="10dp"/>
+    android:background="@color/colorBackground">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:hint="Toggle Scanning"
-        android:background="@drawable/layout_button_style"
-        android:onClick="toggleScan"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_alignParentTop="true">
+    </LinearLayout>
+    <!--         android:src="@drawable/scan_button" -->
+    <TextView
+        android:id="@+id/scan_placeholder_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="24dp"
+        android:hint="Try to scan for nearby available applications"
+
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <ImageButton
         android:id="@+id/buttonToggleScan"
-        android:layout_marginBottom="10dp"/>
 
-    <!--
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorAccent"
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:drawSelectorOnTop="false"
-        />
-
-    -->
-</LinearLayout>
+        android:onClick="toggleScan" />
+</RelativeLayout>
