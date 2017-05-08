@@ -33,10 +33,6 @@ public class ViewFactory {
 
     private View initViewType(GUIElementDescription descr) {
         try {
-            /*
-            String prefix = "android.view.";
-            String fqn = prefix + descr.getType();
-            */
             return implementProperties(descr);
         } catch (ItemNotSupportedException e) {
             Log.e(this.getClass().getName(), e.getMessage());

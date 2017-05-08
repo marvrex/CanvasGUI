@@ -2,13 +2,10 @@ package com.canvasgui.canvasgui;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.canvasgui.canvasgui.connector.CanvasXmlValidator;
 import com.canvasgui.canvasgui.connector.FetchXMLTask;
 import com.canvasgui.canvasgui.connector.XMLToGUIDescriptionConverterTask;
 
@@ -20,7 +17,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -28,19 +24,13 @@ public class ScannedCanvasAppContainer {
     private Context context;
     private Map<ArrayList<GUIElementDescription>,String> apps;
 
-    private CanvasXmlValidator validator;
-
     public ScannedCanvasAppContainer(Context context) {
         this.context = context;
         this.apps = new HashMap<>();
-        this.validator = new CanvasXmlValidator();
     }
 
     private Map<ArrayList<GUIElementDescription>,String> mapAppsToLayoutURL(Collection<Beacon> beacons) {
         Map<ArrayList<GUIElementDescription>, String> map = new HashMap<>();
-        final LayoutInflater  inflater = LayoutInflater.from(context) ;
-        int id = 0;
-
         for (Beacon beacon : beacons) {
             ArrayList<GUIElementDescription> guiComponents;
             String appName;
@@ -60,13 +50,7 @@ public class ScannedCanvasAppContainer {
                 continue;
             }
 
-            Button button = (Button)inflater.inflate(R.layout.canvas_app_button, null);
-            button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            button.setText(url.getPath());
-            button.setId(id);
-
             map.put(guiComponents, appName);
-            id++;
         }
         return map;
     }

@@ -63,9 +63,11 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
 
         isScanning = false;
 
+        // Set up scanning button
         ImageButton scanButton = (ImageButton) findViewById(R.id.buttonToggleScan);
         scanButton.setBackground(getResources().getDrawable(R.drawable.ic_scan_button));
 
+        // Initialize beacon components
         initRegion();
         initBeaconManager();
     }
@@ -93,6 +95,7 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
         beaconManager.addRangeNotifier(this);
     }
 
+    // Called when BLE-Beacons are detected, that broadcast in the defined region
     @Override
     public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
 
@@ -147,6 +150,8 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
 
     /*
      * Stops ranging for beacons broadcasting within this class' acceptedRegion's range
+     * After a scan has been stopped any valid beacons that have been found while scanning
+     * will be processed.
      */
     public void stopScanning() {
         ImageButton scanButton = (ImageButton) findViewById(R.id.buttonToggleScan);
@@ -164,6 +169,11 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
         updateButtons();
     }
 
+    /*
+     * Gets the apps of the ScannedCanvasAppContainer of this activity.
+     * Removes all buttons and thus apps from a previous scan and creates
+     * new buttons for the newly detected ones.
+     */
     private void updateButtons() {
         Map<ArrayList<GUIElementDescription>,String> apps = canvasAppContainer.getApps();
 
@@ -171,6 +181,10 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
         addScanResultAsButton(apps);
     }
 
+    /*
+     * Creates and adds Buttons for this layout using
+     * informationen of the app definition obtained via a previous scan
+     */
     private void addScanResultAsButton(Map<ArrayList<GUIElementDescription>,String> apps) {
         // Disable placeholder text
         removePlaceholderText();
@@ -213,6 +227,9 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
         layoutWrapper.removeView(findViewById(R.id.scan_placeholder_text));
     }
 
+    /*
+     * Removes any existing buttons and thus apps provided by this application
+     */
     private void removeButtonsFromPreviousScan(List<Integer> oldButtonIds) {
         LinearLayout layout = (LinearLayout) findViewById(R.id.activity_main);
 
@@ -230,6 +247,9 @@ public class ScanActivity extends AppCompatActivity implements RangeNotifier, Be
         beaconManager.unbind(this);
     }
 
+    /*
+     * Starts a new activity and transmits the defined GUI components of an app definition
+     */
     public void openCanvasApp(ArrayList<GUIElementDescription> guiItems) {
         // Create an intent for the new activity
         Intent intent = new Intent(this, DisplayXmlActivity.class);
